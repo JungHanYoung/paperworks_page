@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/fd45128f-4f4d-4c93-9171-4b18d58916e0/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/paperworks12ExpressApp",
+    "appService.deploySubpath": "."
+}

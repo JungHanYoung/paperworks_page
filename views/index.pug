@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  main
+    section.py-40(style='background-image: url(images/background_image1.jpg); background-size: cover;')
+        .container.mx-auto
+            h2.text-4xl.my-8.font-bold
+                span.text-red-400 신속한 수리 서비스 
+                span.text-blue-400.pl-4 합리적인 수리 가격
+            h2.text-4xl.font-bold.my-8
+                span.text-black-500 신뢰를 중요시하는 
+                span.text-gray-200 컴퓨터 수리 및 설치 대행업체 입니다.
+            a.bg-blue-300.py-4.px-16.text-gray-200.inline-block.rounded.animate-bounce(href='/contact') &#xC0C1;&#xB2F4; &#xBC0F; &#xC811;&#xC218;
+    section.container.mx-auto.my-12
+        ul.flex.justify-between.items-center
+            li.flex-1.flex.flex-col.items-center.text-center.pb-8.border-l-2.border-r-2.duration-200(class='hover:bg-red-300 hover:text-white')
+                img.py-8(src="images/server.png", width=120)
+                h3.text-2xl.font-bold 설치 대행 서비스
+            li.flex-1.flex.flex-col.items-center.text-center.pb-8.border-l-2.border-r-2.duration-200(class='hover:bg-red-300 hover:text-white')
+                img.py-8(src="images/clear.png", width=120)
+                h3.text-2xl.font-bold 데이터 완전 삭제
+            li.flex-1.flex.flex-col.items-center.text-center.pb-8.border-l-2.border-r-2.duration-200(class='hover:bg-red-300 hover:text-white')
+                img.py-8(src="images/backup.png", width=120)
+                h3.text-2xl.font-bold 데이터 복구
+    section.container.mx-auto.my-12
+        h1.text-4xl.font-bold.inline-block.border-b-2 WITH
+        .partners
+            .partners_item 
+                img(src="/images/partners/LH_JPG.jpg" alt="한국토지주택공사" width=200 height=200)
+            .partners_item 
+                img(src="/images/partners/assembly.png" alt="대한민국 국회" width=200 height=200)
+            .partners_item 
+                img(src="/images/partners/national_tax.png" alt="대한민국 국세청" width=200 height=200)
+            .partners_item 
+                img(src="/images/partners/seongdonggu.jpg" alt="성동구청" width=200 height=200)
+            .partners_item 
+                img(src="/images/partners/the_k.jpg" alt="더케이 한국교직원공제회" width=200 height=200)
+
+
+
+

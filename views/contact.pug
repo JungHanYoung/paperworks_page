@@ -1,0 +1,54 @@
+extends layout.pug
+
+block content
+    main
+        section.py-40(style="background-image: url(images/background_image1.jpg); background-size: cover;")
+            h2.container.mx-auto.text-4xl.text-indigo-500.font-bold.align-middle 고객지원
+        section=errors ? JSON.stringify(errors) : ""
+        section.my-20
+            form(action="/postQuestion", method="POST")
+                table.container.mx-auto.table-auto.border-t-2.border-b-2.border-gray-500
+                    tbody
+                        tr.border-b-2
+                            th.px-4.py-4.bg-gray-100(class='w-1/6') 제품유형
+                            th.w-auto.px-4.py-4
+                                .inline-block.float-left.relative.w-64
+                                    select.block.appearance-none.w-full.bg-white.border.border-gray-400.px-4.py-2.pr-8.rounded.shadow.leading-tight(class='hover:border-gray-500 focus:outline-none focus:shadow-outline' name="productType")
+                                        option PC
+                                        option 노트북
+                                        option 기타
+                                    .pointer-events-none.absolute.inset-y-0.right-0.flex.items-center.px-2.text-gray-700
+                                        svg.fill-current.h-4.w-4(xmlns='http://www.w3.org/2000/svg' viewbox='0 0 20 20')
+                                            path(d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z')
+                        tr.border-b-2
+                            th.px-4.py-4.bg-gray-100(class='w-1/6') 문의유형
+                            th.w-auto.px-4.py-4
+                                .inline-block.float-left.relative.w-64
+                                    select.block.appearance-none.w-full.bg-white.border.border-gray-400.px-4.py-2.pr-8.rounded.shadow.leading-tight(class='hover:border-gray-500 focus:outline-none focus:shadow-outline' name="questionType")
+                                        option Q&amp;A
+                                        option 주문접수
+                                        option 견적문의
+                                        option 기타
+                                    .pointer-events-none.absolute.inset-y-0.right-0.flex.items-center.px-2.text-gray-700
+                                        svg.fill-current.h-4.w-4(xmlns='http://www.w3.org/2000/svg' viewbox='0 0 20 20')
+                                            path(d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z')
+                        tr.border-b-2
+                            th.px-4.py-4.bg-gray-100(class='w-1/6') 제품명
+                            th.w-auto.px-4.py-4(id="productName")
+                                input.float-left.shadow.appearance-none.border.rounded.py-2.px-3.text-gray-700.leading-tight(class=`w-1/2 focus:outline-none focus:shadow-outline ${errors && errors.some(e => e.param === "productName") ? "error border-red-400" : ""}` type='text' name="productName")
+                                if errors && errors.some(e => e.param === "productName")
+                                    span.text-red-400=errors.find(e => e.param === "productName").msg
+                        tr.border-b-2
+                            th.px-4.py-4.bg-gray-100(class='w-1/6') 이메일
+                            th.w-auto.px-4.py-4(id="email")
+                                input.float-left.shadow.appearance-none.border.rounded.py-2.px-3.text-gray-700.leading-tight(class=`w-1/2 focus:outline-none focus:shadow-outline ${errors && errors.some(e => e.param === "email") ? "error border-red-400" : ""}` type='text' name="email")
+                                if errors && errors.some(e => e.param === "email")
+                                    span.text-red-400=errors.find(e => e.param === "email").msg
+                        tr
+                            th.px-4.py-4.bg-gray-100(class='w-1/6') 내용
+                            th.w-auto.px-4.py-4.text-left(id="contents")
+                                textarea.w-full.shadow.appearance-none.border.rounded.p-4.border-0.text-gray-700.leading-tight(class=`focus:outline-none focus:shadow-outline ${errors && errors.some(e => e.param === "contents") ? "error border-red-400" : ""}` rows='6' name="contents")
+                                if errors && errors.some(e => e.param === "contents")
+                                    span.text-red-400.text-left=errors.find(e => e.param === "contents").msg
+                .mt-10.text-center
+                    button.bg-blue-500.text-white.font-bold.py-2.px-24.rounded(class='hover:bg-blue-700 focus:outline-none focus:shadow-outline', type="submit") 전송
