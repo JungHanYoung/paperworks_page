@@ -49,6 +49,7 @@ router.post('/postQuestion', [
 })
 
 router.get('/history', function(req, res) {
+  // Hello World
   // if(random.boolean()) {
   //   res.render('history');
   // } else {
