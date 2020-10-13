@@ -5,7 +5,7 @@
     const emailEl = document.querySelector("#email")
     const contentsEl = document.querySelector("#contents")
 
-    window.
+    
     productNameEl.addEventListener('change', onChangeInputForm(productNameEl))
     emailEl.addEventListener('change', onChangeInputForm(emailEl))
     contentsEl.addEventListener('change', onChangeInputForm(contentsEl))

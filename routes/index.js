@@ -38,14 +38,22 @@ router.post('/postQuestion', [
   } = req.body;
   console.log(productType, questionType, productName, email, contents)
   mailHelper.postMessage(
-    productType,
-    questionType,
-    productName,
-    email,
-    contents
-  );
+    `
+      <h2 style="font-size: 2rem;">제품유형: ${productType}</h2>
+      <h2 style="font-size: 2rem;">질문유형 : ${questionType}</h2>
+      <h2>제품명 : ${productName}</h2>
+      <p>${contents}</p>
+    `,
+    email
+  ).then((messageInfo) => {
+    res.render('success')
+  }).catch((e) => {
+    console.error(e);
+    res.status(400).json({
+      success: false,
+    })
+  });
   // mailHelper.postMessage()
-  res.render('contact')
 })
 
 router.get('/history', function(req, res) {
